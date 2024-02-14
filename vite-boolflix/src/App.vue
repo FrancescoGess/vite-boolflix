@@ -16,16 +16,30 @@
         },
         data(){
             return{
-                store,
+                store
             }
 
         },
+        methods: {
+
+            getData(){
+
+            if (store.searchText){
+            
+                axios.get( `${store.endpointMovies}?api_key=${store.apiKey}&query=${store.searchText}` )
+                .then((res)=>{
+                    console.log(res.data)
+                })
+            }
+                
+            }
+        }
     }
 </script>
 
 <template>
 <header>
-<AppHeader></AppHeader>
+<AppHeader @emitGetData="getData"></AppHeader>
 </header>
 
 <AppMain></AppMain>
