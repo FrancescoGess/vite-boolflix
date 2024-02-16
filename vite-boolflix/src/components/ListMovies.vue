@@ -17,7 +17,7 @@ export default{
 </script>
 <template>
 
-<h3 class="p-3 text-black">Film</h3>
+<h3 class="p-3 text-black">Film e serie Tv</h3>
 
     <h4>
         Risutati:
