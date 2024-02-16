@@ -1,48 +1,72 @@
 <script>
-
-    import AppHeader from './components/AppHeader.vue';
-    import AppMain from './components/AppMain.vue';
-    import SingleCard from './components/SingleCard.vue';
-
-    import { store } from './store';
-    import axios from 'axios';
+    import AppHeader from './components/AppHeader.vue'
+    import ListMovies from './components/ListMovies.vue'
+    import axios from 'axios'
+    import {store} from './store'
 
     export default{
-        name: 'App',
-        components: {
+        components:{
             AppHeader,
-            AppMain,
-            SingleCard
+            ListMovies
         },
         data(){
             return{
                 store
             }
+        },
+        mounted(){
 
         },
         methods: {
 
-            getData(){
-
-            if (store.searchText){
-            
-                axios.get(`${store.endpointMovies}?api_key=${store.apiKey}&query=${store.searchText}`)
-                .then((res)=>{
-                    console.log(res.data)
+            getMoviesSeries(){
+                axios.get(`${store.endpointAll}?api_key=${store.apiKey}&query=${store.searchTitle}`)
+                .then(res=>{
+                    store.list = (res.data.results)
+                    console.log(res.data.results)
                 })
+            },
+            
+            search(){
+                this.getMoviesSeries()
             }
-                
-            }
+
+        //     getMovies(){
+        //         axios.get(`${store.endpointMovies}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
+
+        //         store.moviesArray = (response.data.results)
+        //         console.log(response.data.results)
+        //         })
+
+        //     },
+
+        //     getSeries(){
+        //         if(store.searchTitle){
+        //             axios.get(`${store.endpointSeries}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
+    
+        //             store.seriesArray = (response.data.results)
+        //             console.log(response.data.results)
+        //             })
+        //         }
+        //     },
+
+        //     search(){
+        //         this.getMovies()
+        //         this.getSeries()
+        //     }
         }
+
+
     }
 </script>
 
 <template>
-<header>
-<AppHeader @emitGetData="getData"></AppHeader>
-</header>
 
-<AppMain></AppMain>
+<AppHeader @getMovies="search"></AppHeader>
+<ListMovies></ListMovies>
+
+
+
 
 
 </template>
