@@ -16,8 +16,13 @@ export default {
 
     <div class="list">
         <div class="card-movie">
-            <img class="copertina" :src="'https://image.tmdb.org/t/p/w342/' + propsItem.poster_path" alt="">
-
+            <img class="copertina" :src="'https://image.tmdb.org/t/p/w342' + propsItem.poster_path" alt="">
+            <h3>
+                {{ propsItem.media_type }}
+            </h3>
+            <h3>
+                {{ propsItem.title }}
+            </h3>
         </div>
 
     </div>
