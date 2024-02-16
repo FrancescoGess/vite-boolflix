@@ -23,7 +23,10 @@ export default{
         Risutati:
     </h4>
     <div class="scroll d-flex">
-        <movies v-for="(film, index) in store.list" :key="index" :propsItem="film"/>
+        <movies 
+        v-for="(film, index) in store.list" 
+        :key="index" 
+        :propsItem="film"/>
     </div>
 
     <!-- <h3 class="p-3 text-black">Serie Tv</h3>
