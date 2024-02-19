@@ -33,22 +33,34 @@ export default {
                 <h3 class="text-center p-2">
                     {{ ( propsItem.original_Title )  ? propsItem.original_Title : propsItem.original_name }}
                 </h3>
+                <h5>
+                    Release Date
+                </h5>
                 <p>
                 {{ (propsItem.release_date) ? propsItem.release_date : propsItem.first_air_date }} 
                 </p>
+                <h5>
+                    Overview
+                </h5>
                 <p>
                     {{ (propsItem.overview) ? propsItem.overview : propsItem.overview }}
                 </p>
-           
-                <!-- <p>
+                
+                <h5>
+                    Vote
+                </h5>
+                <p>
                     {{ propsItem.vote_average }}
-                </p>  -->
+                </p>
 
                   
 
 
                     <figure class="flag">
-                        <img :src="`https://flagsapi.com/${ changeFlags(propsItem.original_language).toUpperCase() }/flat/24.png`" alt="">
+                        <h5>
+                            Language
+                        </h5>
+                        <img :src="`https://flagsapi.com/${ changeFlags(propsItem.original_language).toUpperCase() }/flat/24.png`" alt="flag language">
                     </figure>
           
             </div>       

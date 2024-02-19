@@ -18,7 +18,7 @@ export default{
         <h1 class="text-black">Boolflix</h1>
 
         <div>
-            <input type="text" placeholder="Cerca titolo" v-model="store.searchText">
+            <input class="mx-1" type="text" placeholder="Cerca titolo" v-model="store.searchText">
             <button @click="$emit('getMovies')" class="btn btn-dark p-1">Cerca</button>
         </div>
     </header>
